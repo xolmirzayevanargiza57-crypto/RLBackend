@@ -1,5 +1,8 @@
 lucide.createIcons();
 
+// Backend loyihangizning Render havolasi
+const API_URL = 'https://rlfrontend.onrender.com';
+
 let currentMode = 'reading';
 let cardCounter = 0;
 
@@ -153,7 +156,8 @@ document.getElementById('main-form').addEventListener('submit', async (e) => {
     }, 200);
 
     try {
-        const response = await fetch('http://localhost:3000/api/analyze-cards', {
+        // Bu yerda localhost o'rniga Render manzili ishlatilmoqda
+        const response = await fetch(`${API_URL}/api/analyze-cards`, {
             method: 'POST',
             body: formData
         });
@@ -189,6 +193,6 @@ document.getElementById('main-form').addEventListener('submit', async (e) => {
     } catch (err) {
         clearInterval(interval);
         progContainer.style.display = 'none';
-        alert('Serverga ulanishda xatolik! Backend ishlab turganini tekshiring.');
+        alert('Serverga ulanishda xatolik! Backend (Render) ishlab turganini va CORS sozlamalarini tekshiring.');
     }
 });
