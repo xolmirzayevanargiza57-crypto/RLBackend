@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Workspace - Apple Dynamic Cards</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Learning Assistant</h1>
+            <p class="subtitle">Apple-style grid task manager</p>
+        </header>
+
+        <div class="btn-group">
+            <button id="btn-reading" class="tab-btn active" onclick="switchTab('reading')">
+                <i data-lucide="book-open"></i> Reading Mode
+            </button>
+            <button id="btn-listening" class="tab-btn" onclick="switchTab('listening')">
+                <i data-lucide="headphones"></i> Listening Mode
+            </button>
+        </div>
+
+        <form id="main-form">
+            <div class="action-bar">
+                <button type="button" class="add-card-btn" onclick="addNewCard()">
+                    <i data-lucide="plus-circle"></i> Add New Task Card (<span id="card-count">0</span>/10)
+                </button>
+            </div>
+
+            <div id="cards-container" class="cards-grid"></div>
+
+            <div class="footer-controls">
+                <button type="submit" class="submit-btn">
+                    <i data-lucide="sparkles"></i> Process All Cards with Groq AI
+                </button>
+
+                <div class="progress-container" id="progress-container">
+                    <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+                    <div class="progress-status">Analyzing cards... <span id="progress-text">0%</span></div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
